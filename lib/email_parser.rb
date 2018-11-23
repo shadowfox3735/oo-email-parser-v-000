@@ -6,15 +6,11 @@ class EmailParser
   attr_accessor :name, :emails
   
   def initialize(emails)
-#   @name = name
     @csv_emails = csv_emails
   end 
- # This will not work because "emails2" below will not be properly parsed  
-# def parse 
-#   csv_emails.split(/\s*,\s*/)
-# end 
+
    def parse 
-    csv_emails.split.collect do |address|
+    emails.split.collect do |address|
       address.split(',') 
     end
     .flatten.uniq 
